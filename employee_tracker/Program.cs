@@ -1,4 +1,10 @@
+using employee_tracker.Config;
+using employee_tracker.data.Repo;
+using employee_tracker.domain.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<IEmployeeRepo, EmployeeRepo>();
+builder.Services.AddSingleton<IConfig, EmployeeTrackerConfig>();//used this to create a single instance for config across the project.
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

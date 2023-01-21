@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\employee_tracker.data\employee_tracker.data.csproj" />
+    <ProjectReference Include="..\employee_tracker.domain\employee_tracker.domain.csproj" />
+  </ItemGroup>
+
 </Project>
