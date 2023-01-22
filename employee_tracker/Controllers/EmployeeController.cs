@@ -12,9 +12,22 @@ namespace employee_tracker.Controllers
         {
             _employeeRepo = employeeRepo;
         }
-        public IActionResult Index() 
+        public async Task<IActionResult> Index() 
         {
-            return View();
+            var employees =  await _employeeRepo.GetAllEmployeesAsync();
+
+            return View(employees);
         }
+        public async Task<IActionResult> ViewId(int id)
+        {
+            var foundEmployee = await _employeeRepo.GetEmployeeByIdAsync(id);
+            return View(foundEmployee);
+
+        }
+
+        
+        
+
+        
     }
 }

@@ -1,7 +1,48 @@
-﻿<!--this is my employee view this shows the employee tab-->
+﻿<!--this is my employee view this shows the employee page-->
+@using employee_tracker.domain.Models;
+@model IEnumerable<Employee>
+
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Employee List </h1>
+<h1>Employee List</h1>
 
+<div style="display: block">
+    <a href="/employee/Insertemployee/">Add a new employee</a>
+</div>
+
+<table class="table">
+    <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Address_1</th>
+            <th>Address_2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip_Code</th>
+            <th>phone</th>
+            <th>Email</th>
+            <th>Pay_Rate</th>
+            <th>Hired_at</th>
+    </tr>
+
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@employee.Name</td>
+            <td><a href=/employee/ViewID/@employee.ID>@employee.ID</a></td>
+            <td>@employee.Address_1</td>
+            <td>@employee.Address_2</td>
+            <td>@employee.City</td>
+            <td>@employee.State</td>
+            <td>@employee.Zip_Code</td>
+            <td>@employee.phone</td>
+            <td>@employee.Email</td>
+            <td>@employee.Pay_Rate</td>
+            <td>@employee.Hired_at</td>
+        </tr>
+
+    }
+</table>

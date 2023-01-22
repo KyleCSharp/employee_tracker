@@ -1,0 +1,32 @@
+﻿@using employee_tracker.domain.Models;
+@model Employee
+<h1>Current Employee</h1>
+<table class = "table">
+    <tr>
+        <th>Name</th>
+            <th>ID</th>
+            <th>Address_1</th>
+            <th>Address_2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip_Code</th>
+            <th>phone</th>
+            <th>Email</th>
+            <th>Pay_Rate</th>
+            <th>Hired_at</th>
+    </tr>
+    <tr>    
+        <td>@Model.Name</td>
+        <td>@Model.ID</td>
+        <td>@Model.Address_1</td>
+        <td>@Model.Address_2</td>
+        <td>@Model.City</td>
+        <td>@Model.State</td>
+        <td>@Model.Zip_Code</td>
+        <td>@Model.phone</td>
+        <td>@Model.Email</td>
+        <td>@Model.Pay_Rate</td>
+        <td>@Model.Hired_at</td>
+    </tr>
+</table>
+

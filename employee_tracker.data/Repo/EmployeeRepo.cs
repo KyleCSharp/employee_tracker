@@ -33,16 +33,15 @@ namespace employee_tracker.data.Repo
             conn.Open();
             return await conn.QueryFirstOrDefaultAsync<Employee>("SELECT * FROM dbo.employee " +
                 "WHERE id = @id", new {id = id });
-            
         }
 
         public async Task<Employee> GetEmployeeByNameAsync(string name)
         {
-
             using var conn = new SqlConnection(_config.GetConnectionString());
             conn.Open();
-            return await conn.QueryFirstOrDefaultAsync<Employee>("SELECT * FROM dbo.employee " +
-                "WHERE name = @name", new { name = name });
+            var sql = "SELECT * FROM dbo.employee WHERE name LIKE '%'  + @name + '%'";
+            var param = new {name = name};
+            return await conn.QueryFirstOrDefaultAsync<Employee>(sql,param);
         }
     }
 }
