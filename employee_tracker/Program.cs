@@ -1,3 +1,4 @@
+global using employee_tracker.domain.Models;
 using employee_tracker.Config;
 using employee_tracker.data.Repo;
 using employee_tracker.domain.Interfaces;

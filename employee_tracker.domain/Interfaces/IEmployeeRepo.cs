@@ -14,6 +14,10 @@ namespace employee_tracker.domain.Interfaces
         public Task<Employee> GetEmployeeByNameAsync (string name);
         public Task<Employee> GetEmployeeByIdAsync (int id);
         public Task<IEnumerable<Employee>> GetAllEmployeesAsync();
+        public Task<Employee> UpdateEmployeeAsync(Employee employee);
+        public Task<Employee> AddEmployeeAsync(Employee employee);
+        public Task<int> DeleteEmployeeAsync(int id);
+        
 
         
 

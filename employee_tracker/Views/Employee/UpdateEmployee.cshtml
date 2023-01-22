@@ -1,0 +1,51 @@
+﻿@model Employee
+<h1>Update This Employee</h1>
+@using (Html.BeginForm("UpdateProductToDatabase", "Product", "Post"))
+{
+    <input asp-for="ID" type="hidden" value="@Model.ID"/>
+
+    <label asp-for="Name" class="control-label">Name</label>
+
+    <input type="text" name="Name" class="form-control" value="@Model.Name"/>
+
+    <label asp-for="Address_1" class="control-label">Address Line 1</label>
+
+   <input type="text" name="address" class="form-control" value="@Model.Address_1"/>
+
+    <label asp-for="Address_2" class="control-label">Address Line 2</label>
+
+    <input type="text" name="address" class="form-control" value="@Model.Address_2"/>
+
+    <label asp-for="City" class="control-label">City</label>
+    
+    <input type="text" name="City" class="form-control" value="@Model.City"/>
+
+    <label asp-for="State" class="control-label">State</label>
+
+    <input type="text" name="State" class="form-control" value="@Model.State"/>
+
+    <label asp-for="City" class="control-label">City</label>
+
+    <input type="text" name="City" class="form-control" value="@Model.City"/>
+
+    <label asp-for="Zip_Code" class="control-label">Zip Code</label>
+
+    <input type="text" name="zip_Code" class="form-control" value="@Model.Zip_Code"/>
+
+    <label asp-for="phone" class="control-label">Phone</label>
+
+    <input type="text" name="phone" class="form-control" value="@Model.phone"/>
+
+    <label asp-for="Email" class="control-label">Email</label>
+
+    <input type="text" name="Email" class="form-control" value="@Model.Email"/>
+
+    <label asp-for="Pay_Rate" class="control-label">Pay rate</label>
+
+    <input type="text" name="Pay Rate" class="form-control" value="@Model.Pay_Rate" />
+
+
+    
+    <input type="submit" value="Update " class="btn btn-primary" />
+
+}
