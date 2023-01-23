@@ -21,15 +21,24 @@ namespace employee_tracker.data.Repo
             _config = config;
         }
 
-        public Task<Employee> AddEmployeeAsync(Employee employee)
+        public async Task<Employee> AddEmployeeAsync(Employee employee)
         {
-            throw new NotImplementedException();
+            using var conn = new SqlConnection(_config.GetConnectionString());
+            conn.Open();
+            var rowsAffected = await conn.ExecuteAsync(
+                "INSERT INTO employees(NAME, EMAIL, PAY_RATE, STATE) VALUES (@NAME, @EMAIL, @PAY_RATE, @STATE);",
+                new { employee.Name, employee.Email, employee.Pay_Rate, employee.State, employee.Address_1, employee.Address_2, employee.phone, employee.Zip_Code, employee.City, employee.Hired_at });
+            return await GetEmployeeByIdAsync();
         }
 
-        public Task<int> DeleteEmployeeAsync(int id)
+        public async Task<int> DeleteEmployeeAsync(int id)
         {
-            throw new NotImplementedException();
+            using var conn = new SqlConnection(_config.GetConnectionString());
+            conn.Open();
+            int rowsAffected = await conn.ExecuteAsync("DELETE FROM employees WHERE ID = @id;", new { id });
+            return rowsAffected;
         }
+
 
         public async Task<IEnumerable<Employee>> GetAllEmployeesAsync()
         {
