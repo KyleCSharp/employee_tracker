@@ -1,6 +1,7 @@
 ﻿@model Employee
 <h1>Update This Employee</h1>
-@using (Html.BeginForm("UpdateEmployeeToDatabase", "Employee", "Post"))
+        please type the information you would like to change <Employee>
+    @using (Html.BeginForm("ViewId", "Employee", "UpdateEmployee"))
 {
     <input asp-for="ID" type="hidden" value="@Model.ID"/>
 
@@ -46,6 +47,6 @@
 
 
     
-    <input type="submit" value="Update " class="btn btn-primary" />
+    <input type="submit" value="Update " class="btn btn-primary"/>
 
 }

@@ -21,14 +21,14 @@ namespace employee_tracker.data.Repo
             _config = config;
         }
 
-        public async Task<Employee> AddEmployeeAsync(Employee employee)
+        public async Task<int> AddEmployeeAsync(Employee employee)
         {
             using var conn = new SqlConnection(_config.GetConnectionString());
             conn.Open();
             var rowsAffected = await conn.ExecuteAsync(
                 "INSERT INTO employees(NAME, EMAIL, PAY_RATE, STATE) VALUES (@NAME, @EMAIL, @PAY_RATE, @STATE);",
                 new { employee.Name, employee.Email, employee.Pay_Rate, employee.State, employee.Address_1, employee.Address_2, employee.phone, employee.Zip_Code, employee.City, employee.Hired_at });
-            return await GetEmployeeByIdAsync();
+            return rowsAffected;
         }
 
         public async Task<int> DeleteEmployeeAsync(int id)
