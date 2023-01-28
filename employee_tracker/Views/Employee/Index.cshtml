@@ -10,13 +10,14 @@
 <h1>Employee List</h1>
 
 <div style="display: block">
-    <a href="/employee/Insertemployee/">Add a new employee</a>
+    <a class='btn btn-primary btn-lg' href="/employee/InsertEmployee">Add a new employee</a>
 </div>
 
 <table class="table">
     <tr>
-            <th>Name</th>
+        
             <th>ID</th>
+            <th>Name</th>
             <th>Address 1</th>
             <th>Address 2</th>
             <th>City</th>
@@ -31,8 +32,8 @@
     @foreach (var employee in Model)
     {
         <tr>
+            <td><a class='btn btn-primary btn-sm' href=/employee/ViewID/@employee.ID>@employee.ID</a></td>
             <td>@employee.Name</td>
-            <td><a href=/employee/ViewID/@employee.ID>@employee.ID</a></td>
             <td>@employee.Address_1</td>
             <td>@employee.Address_2</td>
             <td>@employee.City</td>

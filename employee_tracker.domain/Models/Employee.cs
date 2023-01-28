@@ -18,6 +18,6 @@ namespace employee_tracker.domain.Models
         public string State { get; set; }
         public string Zip_Code { get; set; }
         public decimal Pay_Rate { get; set; }
-        public DateTime Hired_at { get; set; }
+        public DateTime Hired_at { get; set; } = DateTime.Now;
     }
 }

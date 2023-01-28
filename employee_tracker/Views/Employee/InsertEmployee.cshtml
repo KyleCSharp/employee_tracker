@@ -1,7 +1,7 @@
 ﻿@model Employee
-<h1>Update This Employee</h1>
-        please type the information you would like to change <Employee>
-    @using (Html.BeginForm("updateEmployeeToDataBase", "Employee", "post"))
+<h1>Add a new employee</h1>
+Please enter the values you would like to add.
+    @using (Html.BeginForm("InsertEmployeeToDataBase", "Employee", "post"))
 {
     <input asp-for="ID" type="hidden" value="@Model.ID"/>
 
@@ -49,7 +49,9 @@
     <label asp-for="Pay_Rate" class="control-label">Pay Rate per hr</label>
     <input type="text" name="Pay_Rate" class="form-control" value="@Model.Pay_Rate" />
 
+    <label asp-for="Hired_at" class="control-label">Hire on date</label>
+    <input type="text" name="Hired_at" class="form-control" value="@Model.Hired_at" />
+
     
     <input type="submit" value="Update " class="btn btn-primary"/>
-
 }

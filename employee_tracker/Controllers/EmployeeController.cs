@@ -27,21 +27,31 @@ namespace employee_tracker.Controllers
 
         }
 
-        public async Task<IActionResult> UpdateEmployee(int id)
+        public async Task<IActionResult> UpdateEmployeeAsync(int id)
         {
             var employessUpdate = await _employeeRepo.GetEmployeeByIdAsync(id);
             return View(employessUpdate);
         }
-        
-        public async Task<IActionResult> UpdateEmployeeToDataBase(Employee employee)
+
+        public async Task<IActionResult> UpdateEmployeeToDataBaseAsync(Employee employee)
         {
             var updateProcess = await _employeeRepo.UpdateEmployeeAsync(employee);
-            return await ViewId(updateProcess.ID);
+            return RedirectToAction("ViewID", new { id = employee.ID });
+        }
+        public IActionResult InsertEmployee ()
+        {
+            return View("InsertEmployee", new Employee());
+        }
+        public async Task<IActionResult>InsertEmployeeToDataBaseAsync(Employee employee)
+        {
+            var idInserted = await _employeeRepo.AddEmployeeAsync(employee);
+            return RedirectToAction("ViewID", new { id = idInserted});
+        }
+        public async Task<IActionResult>DeleteEmployeeFromDataBase(Employee employee)
+        {
+            var deletePerson = await _employeeRepo.DeleteEmployeeAsync(employee.ID);
+            return RedirectToAction("Index");
         }
 
-        
-        
-
-        
     }
 }

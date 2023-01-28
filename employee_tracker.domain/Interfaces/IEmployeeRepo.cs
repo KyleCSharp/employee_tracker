@@ -17,11 +17,7 @@ namespace employee_tracker.domain.Interfaces
         public Task<Employee> UpdateEmployeeAsync(Employee employee);
         public Task<int> AddEmployeeAsync(Employee employee);
         public Task<int> DeleteEmployeeAsync(int id);
-        
-
-        
-
-
+       
     }
 }
 

@@ -5,15 +5,15 @@
     <tr>
         <th>Name</th>
             <th>ID</th>
-            <th>Address_1</th>
-            <th>Address_2</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
             <th>City</th>
             <th>State</th>
-            <th>Zip_Code</th>
+            <th>Zip Code</th>
             <th>phone</th>
             <th>Email</th>
-            <th>Pay_Rate</th>
-            <th>Hired_at</th>
+            <th>Pay Rate</th>
+            <th>Hired Date</th>
     </tr>
     <tr>    
         <td>@Model.Name</td>
@@ -29,7 +29,16 @@
         <td>@Model.Hired_at</td>
     </tr>
 </table>
-<div style=" display: block">
-    <a href="/Employee/UpdateEmployee/@Model.ID">Update this employee</a>
+<div style="display:block">
+    <a class='btn btn-primary btn-sm' href="/Employee/UpdateEmployee/@Model.ID">Update this employee</a>
 </div>
+<div style="display:block">
+    @using (Html.BeginForm("DeleteEmployeeFromDataBase", "employee", "Post"))
+    {
+        <input type="hidden" asp-for="ID" value="@Model.ID" />
+        <input class="btn btn-danger btn -lg" type="submit" onclick="return confirm('Are you sure?')" value="Delete this employee"/>
+        
+    }
+</div>
+
 
