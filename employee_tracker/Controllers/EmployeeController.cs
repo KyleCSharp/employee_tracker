@@ -52,6 +52,11 @@ namespace employee_tracker.Controllers
             var deletePerson = await _employeeRepo.DeleteEmployeeAsync(employee.ID);
             return RedirectToAction("Index");
         }
+        public async Task<IActionResult>SeachForEmployeeFromDataBase(string name)
+        {
+            var foundEmployee = await _employeeRepo.GetEmployeeByNameAsync(name);
+            return View("SearchForEmployeeFromDataBase",foundEmployee);
+        }
 
     }
 }

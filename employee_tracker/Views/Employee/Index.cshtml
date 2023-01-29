@@ -13,6 +13,14 @@
     <a class='btn btn-primary btn-lg' href="/employee/InsertEmployee">Add a new employee</a>
 </div>
 
+@using (Html.BeginForm("SeachForEmployeeFromDataBase", "Employee", "post"))
+{
+  <div class="navbar">
+    <input type="text" placeholder="Search..">
+  </div>
+}
+
+
 <table class="table">
     <tr>
         
