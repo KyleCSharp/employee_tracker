@@ -20,3 +20,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.cover 
+{
+    
+    
+    left: -2%;
+    z-index: 1;
+    
+    color-scheme:normal;
+}

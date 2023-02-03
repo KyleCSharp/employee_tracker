@@ -1,5 +1,4 @@
-﻿using employee_tracker.data.Repo;
-using employee_tracker.domain.Interfaces;
+﻿using employee_tracker.domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace employee_tracker.Controllers
@@ -13,9 +12,9 @@ namespace employee_tracker.Controllers
             _employeeRepo = employeeRepo;
         }
 
-        public async Task<IActionResult> Index() 
+        public async Task<IActionResult> Index()
         {
-            var employees =  await _employeeRepo.GetAllEmployeesAsync();
+            var employees = await _employeeRepo.GetAllEmployeesAsync();
 
             return View(employees);
         }
@@ -30,6 +29,7 @@ namespace employee_tracker.Controllers
         public async Task<IActionResult> UpdateEmployeeAsync(int id)
         {
             var employessUpdate = await _employeeRepo.GetEmployeeByIdAsync(id);
+
             return View(employessUpdate);
         }
 
@@ -38,24 +38,42 @@ namespace employee_tracker.Controllers
             var updateProcess = await _employeeRepo.UpdateEmployeeAsync(employee);
             return RedirectToAction("ViewID", new { id = employee.ID });
         }
-        public IActionResult InsertEmployee ()
+        public IActionResult InsertEmployee()
         {
             return View("InsertEmployee", new Employee());
         }
-        public async Task<IActionResult>InsertEmployeeToDataBaseAsync(Employee employee)
+        public async Task<IActionResult> InsertEmployeeToDataBaseAsync(Employee employee)
         {
             var idInserted = await _employeeRepo.AddEmployeeAsync(employee);
-            return RedirectToAction("ViewID", new { id = idInserted});
+            if (idInserted == 0)
+            {
+                return View("ErrorPage");
+            }
+            return RedirectToAction("ViewID", new { id = idInserted });
         }
-        public async Task<IActionResult>DeleteEmployeeFromDataBase(Employee employee)
+        public async Task<IActionResult> DeleteEmployeeFromDataBase(Employee employee)
         {
             var deletePerson = await _employeeRepo.DeleteEmployeeAsync(employee.ID);
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult>SeachForEmployeeFromDataBase(string name)
+        public async Task<IActionResult> SeachForEmployeesFromDataBase(string name)
         {
-            var foundEmployee = await _employeeRepo.GetEmployeeByNameAsync(name);
-            return View("SearchForEmployeeFromDataBase",foundEmployee);
+            if (String.IsNullOrWhiteSpace(name))
+            {
+                return View("ErrorPage");
+            }
+
+            var foundEmployee = await _employeeRepo.GetEmployeesByNameAsync(name);
+
+
+            if (foundEmployee == null)
+            {
+                return View("ErrorPage");
+            }
+
+            return View("SearchForEmployeesFromDataBase", foundEmployee);
+
+
         }
 
     }

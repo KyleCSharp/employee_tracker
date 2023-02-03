@@ -7,16 +7,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Employee List</h1>
+<div class="cover">
+    <h1>Employee List</h1>
 
 <div style="display: block">
     <a class='btn btn-primary btn-lg' href="/employee/InsertEmployee">Add a new employee</a>
 </div>
 
-@using (Html.BeginForm("SeachForEmployeeFromDataBase", "Employee", "post"))
+@using (Html.BeginForm("SeachForEmployeesFromDataBase", "Employee", "post"))
 {
   <div class="navbar">
-    <input type="text" placeholder="Search..">
+    <input type="text" placeholder="Search.." name="name">
   </div>
 }
 
@@ -55,3 +56,7 @@
 
     }
 </table>
+</div>
+
+
+            

@@ -11,7 +11,7 @@ namespace employee_tracker.domain.Interfaces
 {
     public interface IEmployeeRepo
     {
-        public Task<Employee> GetEmployeeByNameAsync (string name);
+        public Task<Employee> GetEmployeesByNameAsync (string name);
         public Task<Employee> GetEmployeeByIdAsync (int id);
         public Task<IEnumerable<Employee>> GetAllEmployeesAsync();
         public Task<Employee> UpdateEmployeeAsync(Employee employee);
