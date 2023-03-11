@@ -18,7 +18,7 @@ namespace employee_tracker.data.Repo
         public async Task<int> AddEmployeeAsync(Employee employee)
         {
             try
-            {
+           {
                 using var conn = new SqlConnection(_config.GetConnectionString());
                 conn.Open();
                 var rowsAffected = await conn.QueryFirstOrDefaultAsync<int>(
@@ -27,7 +27,7 @@ namespace employee_tracker.data.Repo
 
                 return rowsAffected;
             }
-            catch (Exception)
+            catch (Exception )
             {
                 return 0;
             }

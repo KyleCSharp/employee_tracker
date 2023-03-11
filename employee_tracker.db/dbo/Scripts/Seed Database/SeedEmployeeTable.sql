@@ -1,4 +1,5 @@
-﻿insert into employee (Name, ID, Address_1, Address_2, City, State, Zip_Code, phone, Email, Pay_Rate, Hired_at) values ('Donia Oriel', 1, '24671 Sunbrook Trail', 'Room 14', 'Miami', 'Florida', '33169', '954-807-2119', 'doriel0@google.co.jp', '$3.66', '7/15/2021');
+﻿SET IDENTITY_INSERT employee ON
+insert into employee (Name, ID, Address_1, Address_2, City, State, Zip_Code, phone, Email, Pay_Rate, Hired_at) values ('Donia Oriel', 1, '24671 Sunbrook Trail', 'Room 14', 'Miami', 'Florida', '33169', '954-807-2119', 'doriel0@google.co.jp', '$3.66', '7/15/2021');
 insert into employee (Name, ID, Address_1, Address_2, City, State, Zip_Code, phone, Email, Pay_Rate, Hired_at) values ('Meryl Barbrick', 2, '20320 Hanover Crossing', 'Room 1819', 'Spokane', 'Washington', '99260', '509-348-3712', 'mbarbrick1@census.gov', '$3.43', '12/28/2020');
 insert into employee (Name, ID, Address_1, Address_2, City, State, Zip_Code, phone, Email, Pay_Rate, Hired_at) values ('Jeff Briskey', 3, '7 Haas Avenue', 'Suite 12', 'Milwaukee', 'Wisconsin', '53210', '414-539-0913', 'jbriskey2@ucoz.ru', '$1.66', '7/26/2020');
 insert into employee (Name, ID, Address_1, Address_2, City, State, Zip_Code, phone, Email, Pay_Rate, Hired_at) values ('Base Pozzo', 4, '74 Memorial Park', 'Suite 22', 'San Diego', 'California', '92196', '619-694-7360', 'bpozzo3@prnewswire.com', '$1.73', '12/27/2022');
